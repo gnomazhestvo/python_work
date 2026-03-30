@@ -186,8 +186,6 @@ for user in users:
         else:
             accesability = 'error'
         print(f'{user['name'].title()} ({user['age']}) - {accesability}')
-    else:
-        print(f'{user['name'].title()} ({user['age']}) is already exists. Try another.')
 print()
 
 # 6.11. Города.
@@ -218,3 +216,8 @@ cities = {
         'fact' : 'funny'
     },
 }
+for city, city_infos in cities.items():
+    print(city.title())
+    for city_infos_key, city_infos_value in city_infos.items():
+        print(f"{city_infos_key.title()}: {city_infos_value}")
+    print()
