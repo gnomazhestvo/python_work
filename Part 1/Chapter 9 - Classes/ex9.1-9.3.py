@@ -98,14 +98,16 @@ class User:
         self.notification_marker = notification_marker
 
     def describe_user(self):
+        """вывод полей с описанием"""
         print(f"Пользователь: {self.name.title()} {self.surname.title()}.")
         if self.photo:
             print(f"Фото: {self.photo}.")
         if self.birthday:
             print(f"Дата рождения: {self.birthday}.")
-        print(f"Уведомления: {self.notification_marker}")
+        print(f"Уведомления: {self.notification_marker}.")
 
     def greet_user(self):
+            """приветствует пользователя"""
             print(f"{self.name.title()} {self.surname.title()}, добро пожаловать.")
 
 user_0 = User('lev', 'volkov', 'nature', notification_marker='включены')
