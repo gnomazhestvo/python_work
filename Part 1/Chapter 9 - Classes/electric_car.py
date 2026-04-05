@@ -1,44 +1,39 @@
-class Car:
-    """Простая модель автомобиля"""
+from car import Car
 
-    def __init__(self, make, model, year):
-        """Инициализация атрибутов"""
-        self.make = make
-        self.model = model
-        self.year = year
-        self.odometer_reading = 0
+class Battery:
+    """Простая модель аккумулятора электромобиля."""
 
-    def get_descriptive_name(self):
-        """Возвращает отформатированное описание"""
-        long_name = f"{self.year} {self.make} {self.model}"
-        return long_name
-    
-    def read_odometer(self):
-        """Выводит данные о пробеге машины"""
-        print(f"This car har {self.odometer_reading} km on board.")
-    
-    def update_odometer(self, mileage):
-        """Устанавливает на одометре заданное значение"""
-        if mileage >= self.odometer_reading:
-            self.odometer_reading = mileage
+    def __init__(self, battery_size=40):
+        """Инициализирует атрибуты аккумулятора."""
+        self.battery_size = battery_size
+
+    def describe_battery(self):
+        """Выводит информацию о мощности аккумулятора."""
+        print(f"This car has a {self.battery_size}-kWh battery.")
+
+    def get_range(self):
+        """Выводит данные о приблизительном запасе хода
+        для аккумулятора."""
+        if self.battery_size == 40:
+            range = 150
+        elif self.battery_size == 65:
+            range = 225
         else:
-            print('You can not roll back the odometer!')
-        
-    def increment_odometer(self, miles):
-        """Увеличивает показания одометра на заданное значение"""
-        if miles >= 0:
-            self.odometer_reading += miles
-        else:
-            print('You can not roll back the odometer!')
+            print("Error! We don't have such batteries... Please, contact us.")
+        print(f"This car can go about {range} km on a full charge.")
     
+    def upgrade_battery(self):
+        if self.battery_size == 65:
+            print('You already have the best battery!')
+        else:
+            self.battery_size = 65
+            print(f'Your battery has been upgraded to {self.battery_size} kWh!')
+
+
+
 
 class ElectricCar(Car):
-    """Представляет специфические аспекты электромобилей"""
-
+    """Представляет аспекты машины, специфические для электромобилей"""
     def __init__(self, make, model, year):
-        """Инициализирует атрибуты класса-родителя"""
         super().__init__(make, model, year)
-
-
-my_leaf = ElectricCar('Nissan', 'Leaf', 2024)
-print(my_leaf.get_descriptive_name())
+        self.battery = Battery()

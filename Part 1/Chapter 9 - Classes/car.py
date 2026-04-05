@@ -1,48 +1,34 @@
-print()
-
 class Car:
     """Простая модель автомобиля"""
+
     def __init__(self, make, model, year):
-        """Инициализация атрибутов"""
+        """Инициализирует атрибуты описания автомобиля."""
         self.make = make
         self.model = model
         self.year = year
         self.odometer_reading = 0
-    
+
     def get_descriptive_name(self):
-        """Возвращает отформатированное описание"""
+        """Возвращает отформатированное описание."""
         long_name = f"{self.year} {self.make} {self.model}"
-        return long_name.title()
+        print(long_name.title())
     
     def read_odometer(self):
-        """Выводит данные о пробеге машины"""
-        print(f"Пробег машины - {self.odometer_reading} км.")
+        """Выводит информацию о пробеге машины."""
+        print(f"This car has {self.odometer_reading} km on it.")
 
     def update_odometer(self, mileage):
-        """Устанавливает показания одометра.
-        При попытке скрутки пробега изменение отклоняется"""
-        if mileage < self.odometer_reading:
-            print('Не скручивайте пробег!')
-        else:
+        """Устанавливает на одометре заданное значение.
+        При попытке скрутки изменение отклоняется."""
+        if mileage >= self.odometer_reading:
             self.odometer_reading = mileage
-    
-    def increment_odometer(self, km):
-        if km < 0:
-            print('Не скручивайте пробег!')
         else:
-            self.odometer_reading += km
+            print("You can't roll back an odometer!")
     
-my_new_car = Car('mercedes-benz', 'slk-200', '2011')
-
-print(my_new_car.get_descriptive_name())
-my_new_car.update_odometer(999)
-my_new_car.read_odometer()
-print()
-
-my_new_car.increment_odometer(-100)
-my_new_car.read_odometer()
-print()
-
-my_new_car.update_odometer(999)
-my_new_car.read_odometer()
-print()
+    def increment_odometer(self, miles):
+        """Увеличивает показания одометра с заданным приращением.
+        При попытке скрутки изменение отклоняется."""
+        if miles >= 0:
+            self.odometer_reading += miles
+        else:
+            print("You can't roll back an odometer!")
