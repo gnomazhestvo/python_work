@@ -25,12 +25,18 @@ print(f"\nВыигрышная серия: {set}.\n== == == ==\n")
 # сколько выполнений цикла понадобилось для получения
 # выигрышной комбинации.
 attempts = 0
+attemptss = []
 
-while True:
-    attempts = attempts + 1
-    current_combination = [choice(letters) for _ in range (4)]
-    
-    if set == current_combination:
-        print(f'Ваша серия: {set}')
-        print(f"На победу понадобилось бросков: {attempts}.")
-        break
+for i in range(100):
+    while True:
+        attempts = attempts + 1
+        current_combination = [choice(letters) for _ in range (4)]
+        
+        if set == current_combination:
+            print(f'Ваша серия: {set}')
+            print(f"На победу понадобилось бросков: {attempts}.")
+            attemptss.append(attempts)
+            attempts = 0
+            break
+attempts_approx = sum(attemptss)/len(attemptss)
+print(f"В среднем за {i} попыток, понадобилось {attempts_approx} бросков.")

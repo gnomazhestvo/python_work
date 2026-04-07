@@ -411,8 +411,9 @@ my_car = file.Class(arguments)
 
 \f0\b\fs36 \cf0 \uc0\u1053 \u1072 \u1089 \u1083 \u1077 \u1076 \u1086 \u1074 \u1072 \u1085 \u1080 \u1077 
 \f1\b0\fs24  - \uc0\u1087 \u1086 \u1079 \u1074 \u1086 \u1083 \u1103 \u1077 \u1090  \u1082 \u1083 \u1072 \u1089 \u1089 \u1091 -\u1087 \u1088 \u1077 \u1076 \u1082 \u1091  \u1080 \u1089 \u1087 \u1086 \u1083 \u1100 \u1079 \u1086 \u1074 \u1072 \u1090 \u1100  \u1084 \u1077 \u1090 \u1086 \u1076 \u1099  \u1082 \u1083 \u1072 \u1089 \u1089 \u1072 -\u1088 \u1086 \u1076 \u1080 \u1090 \u1077 \u1083 \u1103 :\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\b class \uc0\u1050 \u1083 \u1072 \u1089 \u1089 -\u1087 \u1088 \u1077 \u1076 \u1086 \u1082 (\u1050 \u1083 \u1072 \u1089 \u1089 -\u1088 \u1086 \u1076 \u1080 \u1090 \u1077 \u1083 \u1100 ):\
+\f0\b \cf0 class \uc0\u1050 \u1083 \u1072 \u1089 \u1089 -\u1087 \u1088 \u1077 \u1076 \u1086 \u1082 (\u1050 \u1083 \u1072 \u1089 \u1089 -\u1088 \u1086 \u1076 \u1080 \u1090 \u1077 \u1083 \u1100 ):\
 	def __init__(self, \uc0\u1072 \u1088 \u1075 \u1091 \u1084 \u1077 \u1085 \u1090 \u1099  \u1082 \u1083 \u1072 \u1089 \u1089 \u1072 -\u1088 \u1086 \u1076 \u1080 \u1090 \u1077 \u1083 \u1103 ):\
 		super().__init__(\uc0\u1072 \u1088 \u1075 \u1091 \u1084 \u1077 \u1085 \u1090 \u1099  \u1082 \u1083 \u1072 \u1089 \u1089 \u1072 -\u1088 \u1086 \u1076 \u1080 \u1090 \u1077 \u1083 \u1103 )\
 \pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
@@ -432,4 +433,35 @@ class ElectricCar(Car):\
 		super().__init__(make, model, year)\
 		self.battery = Battery()\
 my_leaf.battery.describe_battery()\
-}
+\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs48 \cf0 Pathlib\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\fs24 \cf0 \
+\uc0\u1063 \u1090 \u1077 \u1085 \u1080 \u1077  \u1080 \u1079  \u1092 \u1072 \u1081 \u1083 \u1072 :\
+from pathlib import Path\
+path = Path('pi_digits.txt')\
+contents = path.read_text()\
+print(contents)\
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 \uc0\u1052 \u1077 \u1090 \u1086 \u1076 \u1099  pathlib:\
+	
+\f0\b .splitlines()
+\f1\b0  - \uc0\u1089 \u1086 \u1079 \u1076 \u1072 \u1077 \u1090  \u1089 \u1087 \u1080 \u1089 \u1086 \u1082  \u1080 \u1079  \u1089 \u1090 \u1088 \u1086 \u1082  \u1074  \u1092 \u1072 \u1081 \u1083 \u1077 \
+\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \uc0\u1047 \u1072 \u1087 \u1080 \u1089 \u1100  \u1074  \u1092 \u1072 \u1081 \u1083 :
+\f1\b0 \
+
+\f0\b from pathlib import Path\
+path = Path('text_files/programming.txt')\
+contents = 'I love programming.\\n'\
+contents += 'I love creating new games.\\n'\
+contents+= 'I also love working with data.\\n'\
+path.write_text(contents)}
