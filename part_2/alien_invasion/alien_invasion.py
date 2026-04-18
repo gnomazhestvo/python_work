@@ -56,22 +56,27 @@ class AlienInvasion:
 
     def _fire_bullet(self):
         """Создает новый снаряд и добавляет его в группу bullets."""
-        new_bullet = Bullet(self)
-        self.bullets.add(new_bullet)
+        if len(self.bullets) < self.settings.bullet_allowed:
+            new_bullet = Bullet(self)
+            self.bullets.add(new_bullet)
+    
+    def _update_bullets(self):
+        """Обновляет позиции снарядов и уничтожает старые снаряды."""
+        # обновление позиции снарядом:
+        self.bullets.update()
+        # удаление снарядов, вышедших за край экрана:
+        for bullet in self.bullets.copy():
+            if bullet.rect.bottom <= 0:
+                self.bullets.remove(bullet)
 
     def run_game(self):
         """Запускает основной цикл игры."""
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
+            self._update_bullets()
             self._update_screen()
             self.clock.tick(60)
-            # удаление снарядов, вышедших за край экрана:
-            for bullet in self.bullets.copy():
-                if bullet.rect.bottom <= 0:
-                    self.bullets.remove(bullet)
-                    print(len(self.bullets))
 
 if __name__ == '__main__':
     # создание экземпляра и запуск игры
